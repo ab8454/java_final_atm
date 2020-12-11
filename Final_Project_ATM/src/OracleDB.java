@@ -1,5 +1,3 @@
-
-
 import java.sql.*;
 import java.io.*;
 import java.util.*;
@@ -10,13 +8,17 @@ import java.util.concurrent.ExecutionException;
  *
  * @author ab845
  */
-public class DB_MAN {
+public class OracleDB {
     String strDriver = "oracle.jdbc.driver.OracleDriver";
-    //String strURL = "jdbc:sqlserver://localhost:1521;DatabaseName=CARINFO";
-    String strURL = "jdbc:oracle:thin:@localhost:1521:ORCL";
-    String strUser="SYSTEM";
-    String strPWD="AB8488454";
+
+   //    String strURL = "jdbc:oracle:thin:@10.70.41.111:1521:xe";
+  //         String strUser = "INHATC";
+   // String strPWD = "inha1958";
     
+    String strURL = "jdbc:oracle:thin:@localhost:1521:ORCL";
+   String strUser="SYSTEM";
+   String strPWD="AB8488454";
+
     
     Connection DB_con;
     Statement DB_stmt;
