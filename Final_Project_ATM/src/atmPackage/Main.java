@@ -31,12 +31,214 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        btn10 = new javax.swing.JButton();
+        btn10001 = new javax.swing.JButton();
+        btn1001 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        btn11 = new javax.swing.JButton();
+        btnclear1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btn12 = new javax.swing.JButton();
+        btn13 = new javax.swing.JButton();
+        btn14 = new javax.swing.JButton();
+        btn15 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        btn16 = new javax.swing.JButton();
+        btn17 = new javax.swing.JButton();
+        btn18 = new javax.swing.JButton();
+        btn19 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnDepsoit1 = new javax.swing.JButton();
         btnWithdraw1 = new javax.swing.JButton();
         btnTransfer1 = new javax.swing.JButton();
         btnAccountInfo1 = new javax.swing.JButton();
         btnLogout1 = new javax.swing.JButton();
+
+        btn10.setText("9");
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
+
+        btn10001.setText("0000");
+        btn10001.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10001ActionPerformed(evt);
+            }
+        });
+
+        btn1001.setText("000");
+        btn1001.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1001ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("확인");
+
+        btn11.setText("3");
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
+
+        btnclear1.setText("C");
+        btnclear1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclear1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("입금하실 금액을 입력하세요");
+
+        btn12.setText("0");
+        btn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn12ActionPerformed(evt);
+            }
+        });
+
+        btn13.setText("4");
+        btn13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn13ActionPerformed(evt);
+            }
+        });
+
+        btn14.setText("1");
+        btn14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn14ActionPerformed(evt);
+            }
+        });
+
+        btn15.setText("5");
+        btn15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn15ActionPerformed(evt);
+            }
+        });
+
+        btn16.setText("6");
+        btn16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn16ActionPerformed(evt);
+            }
+        });
+
+        btn17.setText("2");
+        btn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn17ActionPerformed(evt);
+            }
+        });
+
+        btn18.setText("7");
+        btn18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn18ActionPerformed(evt);
+            }
+        });
+
+        btn19.setText("8");
+        btn19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn19ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 544, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(270, 270, 270)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGap(174, 174, 174)
+                                    .addComponent(jButton2)
+                                    .addGap(39, 39, 39))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(78, 78, 78)
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btn14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn13, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btn1001, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn18, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(9, 9, 9)
+                                            .addComponent(btn10001, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnclear1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap()))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 192, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn10001)
+                                .addComponent(btn1001)
+                                .addComponent(btnclear1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn10)
+                        .addComponent(btn19)
+                        .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn16)
+                        .addComponent(btn15)
+                        .addComponent(btn13)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn11)
+                        .addComponent(btn17)
+                        .addComponent(btn14)
+                        .addComponent(jButton2))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btn12)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +288,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btnWithdraw1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTransfer1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAccountInfo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addComponent(btnLogout1)
                 .addGap(33, 33, 33))
         );
@@ -110,7 +312,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 572, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -129,11 +331,13 @@ public class Main extends javax.swing.JFrame {
     private void btnDepsoit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepsoit1ActionPerformed
         Deposit deposit = new Deposit();
         deposit.setVisible(true);
-
+        dispose();
     }//GEN-LAST:event_btnDepsoit1ActionPerformed
 
     private void btnWithdraw1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdraw1ActionPerformed
-        // TODO add your handling code here:
+        Withdraw withdraw = new Withdraw();
+        withdraw.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnWithdraw1ActionPerformed
 
     private void btnTransfer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransfer1ActionPerformed
@@ -147,6 +351,58 @@ public class Main extends javax.swing.JFrame {
     private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogout1ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn10ActionPerformed
+
+    private void btn10001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10001ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn10001ActionPerformed
+
+    private void btn1001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1001ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1001ActionPerformed
+
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn11ActionPerformed
+
+    private void btnclear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclear1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclear1ActionPerformed
+
+    private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn12ActionPerformed
+
+    private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn13ActionPerformed
+
+    private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn14ActionPerformed
+
+    private void btn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn15ActionPerformed
+
+    private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn16ActionPerformed
+
+    private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn17ActionPerformed
+
+    private void btn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn18ActionPerformed
+
+    private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn19ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,11 +440,28 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn10;
+    private javax.swing.JButton btn10001;
+    private javax.swing.JButton btn1001;
+    private javax.swing.JButton btn11;
+    private javax.swing.JButton btn12;
+    private javax.swing.JButton btn13;
+    private javax.swing.JButton btn14;
+    private javax.swing.JButton btn15;
+    private javax.swing.JButton btn16;
+    private javax.swing.JButton btn17;
+    private javax.swing.JButton btn18;
+    private javax.swing.JButton btn19;
     private javax.swing.JButton btnAccountInfo1;
     private javax.swing.JButton btnDepsoit1;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnTransfer1;
     private javax.swing.JButton btnWithdraw1;
+    private javax.swing.JButton btnclear1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
