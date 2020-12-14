@@ -335,7 +335,7 @@ public class RepeatPW extends javax.swing.JFrame {
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         String password = txtPassword.getText().trim();
-        String strAccount = Integer.toString(login.account);
+        String strAccount = Integer.toString(Login.account);
         //sql 문 account 정보 update 필요
         String strSQL = "Select * From user_info where account =" + strAccount;
         try{

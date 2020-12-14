@@ -2,7 +2,7 @@ package atmPackage;
 
 
 import atmPackage.RepeatPW;
-import atmPackage.login;
+import atmPackage.Login;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -356,7 +356,7 @@ public class Transfer extends javax.swing.JFrame {
         //본인 계좌
         //잔액 구하기
         int balance=0;
-        String strAccount = Integer.toString(login.account);
+        String strAccount = Integer.toString(Login.account);
         String strSQL = "select * from ("
                 + "select * from transaction where account="+strAccount
                 +" order by 4 desc) where rownum = 1";

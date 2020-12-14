@@ -17,7 +17,7 @@ public class OracleDB {
   //         String strUser = "INHATC";
    // String strPWD = "inha1958";
     
-    String strURL = "jdbc:oracle:thin:@localhost:1521:ORCL";
+   String strURL = "jdbc:oracle:thin:@192.168.56.1:1521:ORCL";
    String strUser="SYSTEM";
    String strPWD="AB8488454";
 

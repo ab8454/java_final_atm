@@ -344,7 +344,7 @@ public class Withdraw extends javax.swing.JFrame {
         Date time = new Date();
         String time1 = format1.format(time);
         int amount = Integer.parseInt(txtAmount.getText().trim());
-        String strAccount = Integer.toString(login.account);
+        String strAccount = Integer.toString(Login.account);
         String strSQL = "Insert Into transaction Values (";        
         strSQL += strAccount + ",";
         strSQL += amount + ",";

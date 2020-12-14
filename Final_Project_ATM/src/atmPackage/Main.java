@@ -434,8 +434,10 @@ public class Main extends javax.swing.JFrame {
 
         /* Create and display the form */
         
-        Main main = new Main();
-        main.setVisible(true);
+
+        
+        Login login = new Login();
+        login.setVisible(true);
         
     }
 

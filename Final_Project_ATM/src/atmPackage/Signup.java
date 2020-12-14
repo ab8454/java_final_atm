@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-public class signup extends javax.swing.JFrame {
+public class Signup extends javax.swing.JFrame {
     OracleDB db = new OracleDB();
-    public signup() {
+    public Signup() {
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -161,8 +161,6 @@ public class signup extends javax.swing.JFrame {
 
     private void btnCheckDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckDuplicateActionPerformed
         int account = Integer.parseInt(txtAccount.getText().trim());
-        String pw1 = txtPassword.getText().trim();
-        String pw2 = txtCheckPassword.getText().trim();
         String name = txtName.getText().trim();
         String strSQL = "Select * From user_info ";
         try{
@@ -180,11 +178,8 @@ public class signup extends javax.swing.JFrame {
                          JOptionPane.showMessageDialog(null, "이름 중복");                         
                          break;
                      }
-                    //비밀번호 다름
-                    if(pw1 != pw2){
-                         JOptionPane.showMessageDialog(null, "비밀번호 확인 바람");                       
-                         break;
-                     }
+                    //중복 없는 경우
+                    JOptionPane.showMessageDialog(null, "중복 없음"); 
             }
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
@@ -208,21 +203,23 @@ public class signup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new signup().setVisible(true);
+                new Signup().setVisible(true);
             }
         });
     }
