@@ -3,23 +3,24 @@ package atmPackage;
 public class AccountInfo extends javax.swing.JFrame {
       
     public AccountInfo() {
-        OracleDB db = new OracleDB();
         initComponents();
         
+        OracleDB db = new OracleDB(); //OracleDB 인스턴스 생성
+
         //계좌번호 출력 
-        String strAccount = Integer.toString(Login.account);
-        txtAccount.setText(strAccount);
+        String strAccount = Integer.toString(Login.account); //Login 클래스의 변수
+        txtAccount.setText(strAccount); // 거래 계좌 텍스트 지정
         
         //계좌 잔고 출력
         String strSQL = "select * from ("
                 + "select * from transaction where account =" + strAccount 
-                +"order by rownum desc) where rownum = 1";
+                +"order by rownum desc) where rownum = 1"; //해당 계좌 번호의 마지막 rownum 호출
         try{
             db.dbOpen();
-            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL); //쿼리 실행 결과 저장
             while(db.DB_rs.next()){
                 String balance = Integer.toString(db.DB_rs.getInt("balance"));
-                txtAmount.setText(balance);
+                txtAmount.setText(balance); //잔고 불러온 후 텍스트 지정
             }
             db.dbClose();
         }catch (Exception e){
@@ -100,20 +101,12 @@ public class AccountInfo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Main main = new Main();
-        main.setVisible(true);
+        Main main = new Main(); //Main 클래스의 인스턴스를 생성
+        main.setVisible(true); //frame 전환
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -130,13 +123,7 @@ public class AccountInfo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AccountInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
 
-        
-
-        
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AccountInfo().setVisible(true);

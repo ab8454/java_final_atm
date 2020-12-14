@@ -1,5 +1,4 @@
 package atmPackage;
-
 import static atmPackage.Login.account;
 import javax.swing.JOptionPane;
 
@@ -11,10 +10,10 @@ public class BankBalance extends javax.swing.JFrame {
         //계좌번호
         String strAccount = Integer.toString(Login.account);
         txtAccount.setText(strAccount);
-        
-        boolean state = true;
+      
         //잔액 구하기
         int balance;
+        boolean state = true;
         String strSQL = "select * from ("
                 + "select * from transaction where account =" + strAccount 
                 +"order by rownum desc) where rownum = 1";
@@ -147,9 +146,6 @@ public class BankBalance extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -179,7 +175,6 @@ public class BankBalance extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
