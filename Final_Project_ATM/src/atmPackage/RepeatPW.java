@@ -1,3 +1,8 @@
+package atmPackage;
+
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,12 +13,12 @@
  *
  * @author 안성호
  */
-public class Transfer2 extends javax.swing.JFrame {
-
+public class RepeatPW extends javax.swing.JFrame {
+        OracleDB db = new OracleDB();
     /**
-     * Creates new form send
+     * Creates new form repeatPW
      */
-    public Transfer2() {
+    public RepeatPW() {
         initComponents();
     }
 
@@ -26,13 +31,9 @@ public class Transfer2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtPassword = new javax.swing.JTextField();
         btnOK = new javax.swing.JButton();
-        btn3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn4 = new javax.swing.JButton();
-        btn5 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
-        btn7 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
         btn10000 = new javax.swing.JButton();
@@ -40,8 +41,12 @@ public class Transfer2 extends javax.swing.JFrame {
         btnclear = new javax.swing.JButton();
         btn0 = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         btn2 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,42 +57,7 @@ public class Transfer2 extends javax.swing.JFrame {
             }
         });
 
-        btn3.setText("3");
-        btn3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("송금하실 금액을 입력하세요");
-
-        btn4.setText("4");
-        btn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn4ActionPerformed(evt);
-            }
-        });
-
-        btn5.setText("5");
-        btn5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn5ActionPerformed(evt);
-            }
-        });
-
-        btn6.setText("6");
-        btn6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn6ActionPerformed(evt);
-            }
-        });
-
-        btn7.setText("7");
-        btn7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn7ActionPerformed(evt);
-            }
-        });
+        jLabel1.setText(" 비밀번호를 다시 입력하세요.");
 
         btn8.setText("8");
         btn8.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +115,41 @@ public class Transfer2 extends javax.swing.JFrame {
             }
         });
 
+        btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+
+        btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+
+        btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+
+        btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+
+        btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,22 +161,21 @@ public class Transfer2 extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(btnOK)
-                                .addGap(79, 79, 79)
-                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn1000, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)))
+                                .addGap(5, 5, 5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(btnOK)
+                                .addGap(49, 49, 49)
+                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(btn10000, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -183,17 +187,16 @@ public class Transfer2 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(170, 170, 170)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,7 +229,7 @@ public class Transfer2 extends javax.swing.JFrame {
                     .addComponent(btn6)
                     .addComponent(btn5)
                     .addComponent(btn4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn3)
@@ -235,7 +238,7 @@ public class Transfer2 extends javax.swing.JFrame {
                     .addComponent(btnOK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn0)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,96 +247,119 @@ public class Transfer2 extends javax.swing.JFrame {
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn0.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn0.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn1.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn1.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn2.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn2.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn3.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn3.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn4.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn4.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn5.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn5.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn6.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn6.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn7.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn7.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn8.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn8.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn9.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn9.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn1000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);   // 버튼을 누르거나 숫자를 눌렀을때 입력 
+        i = txtPassword.getText() + btn1000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);   // 버튼을 누르거나 숫자를 눌렀을때 입력 
     }//GEN-LAST:event_btn1000ActionPerformed
 
     private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn10000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtPassword.getText() + btn10000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtPassword.setText(i);
     }//GEN-LAST:event_btn10000ActionPerformed
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_btnclearActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        // TODO add your handling code here:
-        RepeatPW repeatPW = new RepeatPW();
-        repeatPW.setVisible(true);
+        String password = txtPassword.getText().trim();
+        String strAccount = Integer.toString(login.account);
+        //sql 문 account 정보 update 필요
+        String strSQL = "Select * From user_info where account =" + strAccount;
+        try{
+            db.dbOpen();
+            //이름, 계좌, 비밀번호 확인
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
+            while(db.DB_rs.next()){
+                if(db.DB_rs.getString("password") == password){
+                    //성공
+                    Main main = new Main();
+                    main.setVisible(true);
+                    dispose();
+                } else {
+                    //실패
+                    JOptionPane.showMessageDialog(null, "로그인 실패");
+                }
+            }
+            db.DB_rs.close();
+            db.dbClose();
+            } catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
+        AccountInfo accountinfo = new AccountInfo();
+        accountinfo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnOKActionPerformed
 
@@ -354,13 +380,13 @@ public class Transfer2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Transfer2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RepeatPW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Transfer2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RepeatPW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Transfer2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RepeatPW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Transfer2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RepeatPW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -368,7 +394,7 @@ public class Transfer2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transfer2().setVisible(true);
+                new RepeatPW().setVisible(true);
             }
         });
     }
@@ -389,6 +415,6 @@ public class Transfer2 extends javax.swing.JFrame {
     private javax.swing.JButton btnOK;
     private javax.swing.JButton btnclear;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
