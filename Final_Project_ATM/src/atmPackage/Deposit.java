@@ -333,11 +333,12 @@ public class Deposit extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclearActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        String strSQL = "Insert Into transaction Values (";
         Date time = new Date();
         String time1 = format1.format(time);
         String strAccount = Integer.toString(Login.account);
         int amount = Integer.parseInt(txtAmount.getText().trim());
+        
+        String strSQL = "Insert Into transaction Values (";
         strSQL += "'" + strAccount + "',";
         strSQL += "'" + amount + "',";
         strSQL += "'입금',";
@@ -345,7 +346,9 @@ public class Deposit extends javax.swing.JFrame {
         try{
             db.dbOpen();
             db.DB_stmt.executeUpdate(strSQL);
+            db.DB_con.commit();
             db.dbClose();
+            
             //sql문 성공 시
             RepeatPW repeatPW = new RepeatPW();
             repeatPW.setVisible(true);

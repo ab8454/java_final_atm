@@ -140,7 +140,7 @@ public class Signup extends javax.swing.JFrame {
                          break;
 
                      }
-                    if(pw1 != pw2){
+                    if(!pw1.equals(pw2)){
                          JOptionPane.showMessageDialog(null, "비밀번호 확인 바람");
                          state = false;                         
                          break;
@@ -153,7 +153,11 @@ public class Signup extends javax.swing.JFrame {
                 strSQL += "'" + pw1 + "')";
                 db.DB_stmt.executeUpdate(strSQL);
             }
+            db.DB_con.commit();
             db.dbClose();
+            Main main = new Main();
+            main.setVisible(true);
+            dispose();
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
             }

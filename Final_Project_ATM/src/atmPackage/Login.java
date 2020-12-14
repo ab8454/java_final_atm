@@ -111,41 +111,44 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        account = Integer.parseInt(txtAccount.getText().trim());
+        String strAccount = txtAccount.getText().trim();
+        account = Integer.parseInt(strAccount);
         name = txtName.getText().trim();
         String password = txtPassword.getText().trim();
-        
+        int memberCnt=0;
         boolean state = true;
         try{
              db.dbOpen();
             //중복 체크
-            db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
+            String strSQL = "Select * From user_info where account ="+strAccount;
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
                 while(db.DB_rs.next() && state){
-                     if(db.DB_rs.getInt("account")==account){
+                     if(db.DB_rs.getInt("account")!=account){
                          JOptionPane.showMessageDialog(null, "계좌 번호 확인 바람");
                          state = false;
                          break;
                      } 
-                    if(db.DB_rs.getString("name")==name){
+                    if(!db.DB_rs.getString("name").equals(name)){
                          JOptionPane.showMessageDialog(null, "이름 확인 바람");
                          state = false;                         
                          break;
 
                      }
-                    if(db.DB_rs.getString("password")== password){
+                    if(!db.DB_rs.getString("password").equals(password)){
                          JOptionPane.showMessageDialog(null, "비밀번호 확인 바람");
                          state = false;                         
                          break;
                      }
+                    memberCnt++;
             }
             db.dbClose();
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
-    if (state == true){
-        Main main = new Main();
-        main.setVisible(true);
-    }
+        if (state == true && memberCnt>0){
+            Main main = new Main();
+            main.setVisible(true);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountActionPerformed
