@@ -16,12 +16,7 @@ import java.util.Date;
  */
 public class Deposit extends javax.swing.JFrame {
         OracleDB db = new OracleDB();
-        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
-		
 
-    /**
-     * Creates new form deposit
-     */
     public Deposit() {
         initComponents();
         
@@ -333,16 +328,31 @@ public class Deposit extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclearActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        Date time = new Date();
-        String time1 = format1.format(time);
-        String strAccount = Integer.toString(Login.account);
         int amount = Integer.parseInt(txtAmount.getText().trim());
+        //잔액 구하기
+        int balance=0;
+        String strAccount = Integer.toString(Login.account);
+        String strSQL = "select * from ("
+                + "select * from transaction where account =" + strAccount 
+                +"order by rownum desc) where rownum = 1";
+        try{
+            db.dbOpen();
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
+            while(db.DB_rs.next()){
+                //거래 내역 있을 시
+                balance = db.DB_rs.getInt("balance");
+            }
+            db.dbClose();
+        }catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
         
-        String strSQL = "Insert Into transaction Values (";
-        strSQL += "'" + strAccount + "',";
-        strSQL += "'" + amount + "',";
-        strSQL += "'입금',";
-        strSQL += "'" + time1 + "')";
+        //입금 처리
+        strSQL = "Insert Into transaction Values(";
+        strSQL +=  Login.account + ",";
+        strSQL +=  balance + amount;
+        strSQL += ", '입금',";
+        strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
         try{
             db.dbOpen();
             db.DB_stmt.executeUpdate(strSQL);
@@ -358,8 +368,6 @@ public class Deposit extends javax.swing.JFrame {
             //sql 문 실패 시 
             System.out.println("SQLException : "+e.getMessage());
         }
-        
-
     }//GEN-LAST:event_btnOKActionPerformed
 
     /**

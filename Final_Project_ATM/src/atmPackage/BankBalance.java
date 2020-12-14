@@ -16,8 +16,8 @@ public class BankBalance extends javax.swing.JFrame {
         //잔액 구하기
         int balance;
         String strSQL = "select * from ("
-                + "select * from transaction where account="+strAccount
-                +" order by 4 desc) where rownum = 1";
+                + "select * from transaction where account =" + strAccount 
+                +"order by rownum desc) where rownum = 1";
         try{
             db.dbOpen();
             db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
@@ -28,13 +28,26 @@ public class BankBalance extends javax.swing.JFrame {
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
-
         
-        //TABLE 수정해야됨
-        
-        
-        
-        ////
+        //테이블 거래내역
+        int iCntRow = 0;
+        strAccount = Integer.toString(Login.account);
+        int tempBalance=0;
+        strSQL = "Select * From transaction where account="+strAccount;
+        try{
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
+                while(db.DB_rs.next()){
+                     jTable1.setValueAt(iCntRow+1, iCntRow, 0);
+                    jTable1.setValueAt(db.DB_rs.getString("t_info"),    iCntRow, 1);
+                    jTable1.setValueAt(Integer.parseInt(db.DB_rs.getString("balance"))- tempBalance, iCntRow, 2);
+                    jTable1.setValueAt(db.DB_rs.getString("balance"), iCntRow, 3);
+                    iCntRow++;
+                    tempBalance = Integer.parseInt(db.DB_rs.getString("balance"));
+            }
+            db.DB_rs.close();
+        }  catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }  
     }
     
     @SuppressWarnings("unchecked")
@@ -43,12 +56,12 @@ public class BankBalance extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        txtAccount = new javax.swing.JTextField();
-        txtBalance = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        txtAccount = new javax.swing.JLabel();
+        txtBalance = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -62,27 +75,31 @@ public class BankBalance extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "거래 정보", "금액", "잔액", "날짜"
+                "번호", "거래 유형", "거래 금액", "잔액", "날짜"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        txtAccount.setText("-");
+
+        txtBalance.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,35 +109,37 @@ public class BankBalance extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel2)))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
-                .addGap(123, 123, 123))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(txtAccount))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBalance))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(26, 26, 26))
         );
@@ -168,7 +187,7 @@ public class BankBalance extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField txtAccount;
-    private javax.swing.JTextField txtBalance;
+    private javax.swing.JLabel txtAccount;
+    private javax.swing.JLabel txtBalance;
     // End of variables declaration//GEN-END:variables
 }
