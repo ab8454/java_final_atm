@@ -1,413 +1,188 @@
-
-import javax.swing.JFrame;
-
-    /**
- *
- * @author ab845
- */
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
-    OracleDB db = new OracleDB();
-    String strSQL = "Select * From user_info";
-    
-    
+    static boolean isDuplicate = false;
     public MainFrame() {
-        initComponents();
-        try{
-            db.dbOpen();
-            setTableFromDB(strSQL);
-            db.dbClose();
-        } catch (Exception e){  
-            System.out.println("SQLException : "+e.getMessage());
-        }
-    }
-
-    
-    public void setTableFromDB(String strQuery){
-        int iCntRow = 0;
-        try{
-            db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
-                while(db.DB_rs.next()){
-                     jTable1.setValueAt(db.DB_rs.getString("id"), iCntRow, 0);
-                    jTable1.setValueAt(db.DB_rs.getString("password"), iCntRow, 1);
-                    jTable1.setValueAt(db.DB_rs.getString("name"), iCntRow, 2);
-                    jTable1.setValueAt("account",iCntRow, 3);
-                    iCntRow++;
-            }
-            db.DB_rs.close();
-        }  catch (Exception e){
-            System.out.println("SQLException : "+e.getMessage());
-        }  
         
-    }
-    public String makeSQLWhere(String strQuery){
-        switch(cboSearch.getSelectedIndex()){
-            case 0:
-                strQuery += " Where No = '" + txtNo.getText().trim()+"'";
-                break;
-            case 1:
-                strQuery += " Where name = '" + txName.getText()+"' ";
-                break;
-            case 2:
-                strQuery += " Where Charge = " + txtCharge.getText().trim()+" ";
-                break;
-            case 3:
-                strQuery += " Where Phone = '" + txtPhone.getText()+"' ";
-                break;
-            case 4:
-                strQuery += " Where Grade = '" + txtGrade.getText()+"' ";
-                break;
-            default:
-                strQuery += "Select * From CarInfo";
-                break;
-        }
-        return strQuery;
+        initComponents();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        btnWithdraw6 = new javax.swing.JButton();
-        btnDeposit1 = new javax.swing.JButton();
-        btnTransfer1 = new javax.swing.JButton();
-        btnAccountInfo1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        mainFrame = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        btnWithdraw5 = new javax.swing.JButton();
-        btnDeposit = new javax.swing.JButton();
-        btnTransfer = new javax.swing.JButton();
-        btnAccountInfo = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        btn_action_deposit = new javax.swing.JButton();
-
-        jLabel7.setText("jLabel7");
-
-        jPanel14.setBackground(new java.awt.Color(54, 33, 89));
-
-        jPanel15.setBackground(new java.awt.Color(85, 65, 118));
-
-        jLabel8.setFont(new java.awt.Font("나눔고딕", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("출금");
-
-        btnWithdraw6.setText("출금");
-        btnWithdraw6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWithdraw6btnWithdrawActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnWithdraw6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnWithdraw6)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        btnDeposit1.setText("입금");
-        btnDeposit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeposit1ActionPerformed(evt);
-            }
-        });
-
-        btnTransfer1.setText("송금");
-        btnTransfer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransfer1ActionPerformed(evt);
-            }
-        });
-
-        btnAccountInfo1.setText("계좌 조회");
-        btnAccountInfo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountInfo1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnDeposit1))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btnTransfer1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel14Layout.createSequentialGroup()
-                    .addGap(39, 39, 39)
-                    .addComponent(btnAccountInfo1)
-                    .addContainerGap(180, Short.MAX_VALUE)))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(btnDeposit1)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btnTransfer1)
-                .addContainerGap(317, Short.MAX_VALUE))
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                    .addContainerGap(315, Short.MAX_VALUE)
-                    .addComponent(btnAccountInfo1)
-                    .addGap(225, 225, 225)))
-        );
-
-        jLabel5.setText("jLabel5");
-
-        jLabel9.setText("jLabel9");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField1");
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame1Layout.createSequentialGroup()
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrame1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(164, 164, 164))
-                    .addGroup(jFrame1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel9))
-                        .addGap(95, 95, 95)
-                        .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(359, Short.MAX_VALUE))))
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame1Layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(126, 126, 126))
-            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        btnCheckDuplicate = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainFrame.setBackground(new java.awt.Color(235, 237, 242));
+        jLabel1.setFont(new java.awt.Font("굴림", 0, 24)); // NOI18N
+        jLabel1.setText("회원가입");
 
-        jPanel13.setBackground(new java.awt.Color(54, 33, 89));
+        jLabel2.setText("계좌");
 
-        jPanel12.setBackground(new java.awt.Color(85, 65, 118));
+        jLabel3.setText("비밀번호");
 
-        jLabel6.setFont(new java.awt.Font("나눔고딕", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("출금");
+        jLabel4.setText("비밀번호확인");
 
-        btnWithdraw5.setText("출금");
-        btnWithdraw5.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("성 명");
+
+        btnCheckDuplicate.setText("중복확인");
+        btnCheckDuplicate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWithdrawActionPerformed(evt);
+                btnCheckDuplicateActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnWithdraw5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnWithdraw5)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        btnDeposit.setText("입금");
-        btnDeposit.addActionListener(new java.awt.event.ActionListener() {
+        btnSignUp.setText("등록");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepositActionPerformed(evt);
+                btnSignUpActionPerformed(evt);
             }
         });
 
-        btnTransfer.setText("송금");
-        btnTransfer.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setText("검색");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransferActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-
-        btnAccountInfo.setText("계좌 조회");
-        btnAccountInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountInfoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnDeposit))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btnTransfer)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(39, 39, 39)
-                    .addComponent(btnAccountInfo)
-                    .addContainerGap(180, Short.MAX_VALUE)))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(btnDeposit)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btnTransfer)
-                .addContainerGap(317, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                    .addContainerGap(315, Short.MAX_VALUE)
-                    .addComponent(btnAccountInfo)
-                    .addGap(225, 225, 225)))
-        );
-
-        btnLogout.setText("로그아웃");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
-        btn_action_deposit.setText("실행");
-        btn_action_deposit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_action_depositActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout mainFrameLayout = new javax.swing.GroupLayout(mainFrame);
-        mainFrame.setLayout(mainFrameLayout);
-        mainFrameLayout.setHorizontalGroup(
-            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainFrameLayout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(357, 564, Short.MAX_VALUE)
-                .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainFrameLayout.createSequentialGroup()
-                        .addComponent(btnLogout)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainFrameLayout.createSequentialGroup()
-                        .addComponent(btn_action_deposit)
-                        .addGap(122, 122, 122))))
-        );
-        mainFrameLayout.setVerticalGroup(
-            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(mainFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_action_deposit)
-                .addGap(30, 30, 30)
-                .addComponent(btnLogout)
-                .addGap(23, 23, 23))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                                    .addComponent(jTextField4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField1))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnCheckDuplicate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainFrame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckDuplicate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnSignUp))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnWithdraw6btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdraw6btnWithdrawActionPerformed
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        //회원가입
+        
+        //중복확인
+        if(isDuplicate){ return; } 
+        
+        File file = new File("c:/member.txt");
+        
+        // 비밀번호 같을 시 
+        if(jTextField2.getText().equals(jTextField3.getText())){ 
+            try{
+                FileWriter fw = new FileWriter(file, true);
+                String data = jTextField1.getText()+" "+jTextField2.getText()+" "+jTextField4.getText() +"\n";
+                fw.write(data);
+                fw.close();
+                JOptionPane.showMessageDialog(null,"회원가입 성공");
+            }catch (IOException e) {}
+        
+        //비밀번호 다를 시 
+        } else{
+            JOptionPane.showMessageDialog(null,"비밀번호가 같지 않습니다.");
+            return;
+        }
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
-      
-    }//GEN-LAST:event_btnWithdraw6btnWithdrawActionPerformed
+    private void btnCheckDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckDuplicateActionPerformed
+        //중복확인
+        isDuplicate = false;
+        try{
+            File file = new File("c:/member.txt");
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()){
+                String[] strData = sc.nextLine().split(" ");
+                if(jTextField1.getText().equals(strData[0])){
+                    isDuplicate = true;
+                    JOptionPane.showMessageDialog(null,"중복된 id");
+                }                
+            }
+        }catch (FileNotFoundException e) { }
+    }//GEN-LAST:event_btnCheckDuplicateActionPerformed
 
-    private void btnDeposit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeposit1ActionPerformed
- 
-    }//GEN-LAST:event_btnDeposit1ActionPerformed
-
-    private void btnTransfer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransfer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTransfer1ActionPerformed
-
-    private void btnAccountInfo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountInfo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAccountInfo1ActionPerformed
-
-    private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
-        jFrame1.setLocation(mainFrame.getLocation());
-        jFrame1.setSize(mainFrame.getSize());
-        jFrame1.setVisible(true);
-        mainFrame.setVisible(false);
-    }//GEN-LAST:event_btnDepositActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        //이름찾기
+        try{
+            File file = new File("c:/member.txt");
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()){
+                String[] strData = sc.nextLine().split(" ");
+                if(jTextField1.getText().equals(strData[0])){
+                    jTextField2.setText(strData[1]);
+                }                
+            }
+        }catch (FileNotFoundException e) { }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -439,34 +214,24 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                     new MainFrame().setVisible(true);
-                }
+                new MainFrame().setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccountInfo;
-    private javax.swing.JButton btnAccountInfo1;
-    private javax.swing.JButton btnDeposit;
-    private javax.swing.JButton btnDeposit1;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnTransfer;
-    private javax.swing.JButton btnTransfer1;
-    private javax.swing.JButton btnWithdraw5;
-    private javax.swing.JButton btnWithdraw6;
-    private javax.swing.JButton btn_action_deposit;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JButton btnCheckDuplicate;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSignUp;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel mainFrame;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
