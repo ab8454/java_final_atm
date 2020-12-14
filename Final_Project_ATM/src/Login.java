@@ -13,7 +13,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Login() {
+    public Login() {    
         initComponents();
     }
 
@@ -106,7 +106,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainFrame mainFrame = new MainFrame();
+        signup mainFrame = new signup();
         mainFrame.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

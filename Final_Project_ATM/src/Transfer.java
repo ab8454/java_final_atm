@@ -35,13 +35,16 @@ public class Transfer extends javax.swing.JFrame {
         btn8 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtAccount = new javax.swing.JTextField();
         btn10000 = new javax.swing.JButton();
         btn6 = new javax.swing.JButton();
         btn1000 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOK = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtAmount = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,7 +132,7 @@ public class Transfer extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("송금하실 분의 계좌를 입력하세요");
+        jLabel1.setText("송금");
 
         btnOK.setText("확인");
         btnOK.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +148,10 @@ public class Transfer extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("계좌");
+
+        jLabel3.setText("금액");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,11 +162,22 @@ public class Transfer extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnOK))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 39, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -203,14 +221,14 @@ public class Transfer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btn10000)
-                                .addComponent(btnclear))
-                            .addComponent(jLabel1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn10000)
+                            .addComponent(btnclear)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn1000)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btn1000))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -230,11 +248,16 @@ public class Transfer extends javax.swing.JFrame {
                             .addComponent(btn1))
                         .addGap(9, 9, 9)
                         .addComponent(btn0)
-                        .addContainerGap(37, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
                         .addComponent(btnOK)
                         .addGap(53, 53, 53))))
         );
@@ -245,90 +268,90 @@ public class Transfer extends javax.swing.JFrame {
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn0.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn0.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn1.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn1.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn2.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn2.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn3.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn3.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn4.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn4.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn5.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn5.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
         String i;                                      
-        i = jTextField1.getText() + btn6.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn6.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn7.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn7.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
         String i;                                      
-        i = jTextField1.getText() + btn8.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn8.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn9.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn9.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn1000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);   // 버튼을 누르거나 숫자를 눌렀을때 입력 
+        i = txtAccount.getText() + btn1000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);   // 버튼을 누르거나 숫자를 눌렀을때 입력 
     }//GEN-LAST:event_btn1000ActionPerformed
 
     private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
         // TODO add your handling code here:
         String i;                                       
-        i = jTextField1.getText() + btn10000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
-        jTextField1.setText(i);
+        i = txtAccount.getText() + btn10000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
+        txtAccount.setText(i);
     }//GEN-LAST:event_btn10000ActionPerformed
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText("");
+        txtAccount.setText("");
     }//GEN-LAST:event_btnclearActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
@@ -392,6 +415,9 @@ public class Transfer extends javax.swing.JFrame {
     private javax.swing.JButton btnOK;
     private javax.swing.JButton btnclear;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtAccount;
+    private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }
