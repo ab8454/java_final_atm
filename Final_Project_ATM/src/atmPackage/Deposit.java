@@ -1,6 +1,7 @@
 package atmPackage;
 
-import .*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,11 +14,13 @@ import .*;
  * @author 안성호
  */
 public class Deposit extends javax.swing.JFrame {
+    OracleDB db = new OracleDB();
+    SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 
     /**
      * Creates new form deposit
      */
-    public Deposit() {
+    public Deposit() {       
         initComponents();
         
     }
@@ -73,6 +76,11 @@ public class Deposit extends javax.swing.JFrame {
         });
 
         jButton2.setText("확인");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btn11.setText("3");
         btn11.addActionListener(new java.awt.event.ActionListener() {
@@ -303,6 +311,25 @@ public class Deposit extends javax.swing.JFrame {
     private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn19ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int amount = Integer.parseInt(jTextField2.getText().trim());
+        Date time = new Date();
+        String time1 = format1.format(time);
+    
+        String strSQL = "Insert Into transaction Values (";
+        strSQL += "'" + account + "',";
+        strSQL += "'" + balance + "',";
+        strSQL += "'입금',";
+        strSQL += "'" + time1 + "')";
+        try{
+            db.dbOpen();
+            db.DB_stmt.executeUpdate(strSQL);
+            db.dbClose();
+        }catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
