@@ -1,15 +1,15 @@
 package atmPackage;
 
-import static atmPackage.login.account;
+import static atmPackage.Login.account;
 import javax.swing.JOptionPane;
 
-public class bankbalance extends javax.swing.JFrame {
-    public bankbalance() {
+public class BankBalance extends javax.swing.JFrame {
+    public BankBalance() {
         initComponents();
         OracleDB db = new OracleDB();
         
         //계좌번호
-        String strAccount = Integer.toString(login.account);
+        String strAccount = Integer.toString(Login.account);
         txtAccount.setText(strAccount);
         
         boolean state = true;
@@ -145,18 +145,18 @@ public class bankbalance extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(bankbalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BankBalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(bankbalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BankBalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(bankbalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BankBalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(bankbalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BankBalance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bankbalance().setVisible(true);
+                new BankBalance().setVisible(true);
             }
         });
     }
