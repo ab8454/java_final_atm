@@ -347,11 +347,13 @@ public class Transfer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclearActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        int amount = Integer.parseInt(txtAmount.getText().trim());
+        int transferAmount = Integer.parseInt(txtAmount.getText().trim());
         Date time = new Date();
         String time1 = format1.format(time);
         boolean state = true;
+       boolean isExist = false;
        
+        //본인 계좌
         //잔액 구하기
         int balance=0;
         String strAccount = Integer.toString(login.account);
@@ -360,9 +362,15 @@ public class Transfer extends javax.swing.JFrame {
                 +" order by 4 desc) where rownum = 1";
         try{
             db.dbOpen();
-            db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
             while(db.DB_rs.next()){
-                     balance = db.DB_rs.getInt("balance");
+                //거래 내역 있을 시
+                balance = db.DB_rs.getInt("balance")-transferAmount;
+                isExist =true;
+            }
+            //거래내역 없을 시
+            if(isExist == false){
+                balance = transferAmount;
             }
             db.dbClose();
         }catch (Exception e){
@@ -370,8 +378,9 @@ public class Transfer extends javax.swing.JFrame {
             state = false;
         }
         
-        //잔액 불러오기 성공 시 
+        //잔액 불러오기 성공 시        
         if (state == true){
+            //본인 계좌
             strSQL = "Insert Into transaction Values (";
             strSQL += "'" + strAccount + "',";
             strSQL += "'" + balance + "',";
@@ -389,6 +398,49 @@ public class Transfer extends javax.swing.JFrame {
                 System.out.println("SQLException : "+e.getMessage());
             }
         }
+            
+        //타인 계좌
+        //잔액 구하기
+        strAccount = txtAccount.getText().trim();
+        strSQL = "select * from ("
+                + "select * from transaction where account="+strAccount
+                +" order by 4 desc) where rownum = 1";
+        try{
+            db.dbOpen();
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
+            while(db.DB_rs.next()){
+                    //거래내역 있을 시 
+                     balance = db.DB_rs.getInt("balance")+transferAmount;
+                     isExist = true;
+            }
+            //거래내역 없을 시
+            if(isExist == false){
+                balance = transferAmount;
+            }
+            db.dbClose();
+        }catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+            state = false;
+        }
+
+
+        strSQL = "Insert Into transaction Values (";
+        strSQL += "'" + strAccount + "',";
+        strSQL += "'" + balance + "',";
+        strSQL += "'송금',";
+        strSQL += "'" + time1 + "')";
+        try{
+            db.dbOpen();
+            db.DB_stmt.executeUpdate(strSQL);
+            db.dbClose();
+            //sql문 성공 시
+            RepeatPW repeatPW = new RepeatPW();
+            repeatPW.setVisible(true);
+            dispose();
+        }catch (Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnOKActionPerformed
 
     /**

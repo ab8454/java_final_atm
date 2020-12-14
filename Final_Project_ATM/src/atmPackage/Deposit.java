@@ -336,8 +336,9 @@ public class Deposit extends javax.swing.JFrame {
         String strSQL = "Insert Into transaction Values (";
         Date time = new Date();
         String time1 = format1.format(time);
+        String strAccount = Integer.toString(login.account);
         int amount = Integer.parseInt(txtAmount.getText().trim());
-        strSQL += "'" + Login.account + "',";
+        strSQL += "'" + strAccount + "',";
         strSQL += "'" + amount + "',";
         strSQL += "'입금',";
         strSQL += "'" + time1 + "')";
