@@ -12,13 +12,14 @@ import javax.swing.JFrame;
  * @author ab845
  */
 public class MainFrame {
-        public static void main(String args[]) {
-            Main main = new Main();
-            main.setVisible(true);
-        }
-        private static void hideMain(){
+        public void hideMain(Main main){
             main.setVisible(false);
         }
-        
+        public static void main(String args[]) {
+          Main main = new Main();
+            main.setVisible(true);
+        }
 
 }
+
+
