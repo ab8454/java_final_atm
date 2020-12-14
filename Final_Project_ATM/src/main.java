@@ -9,12 +9,14 @@
  * @author 안성호
  */
 public class main extends javax.swing.JFrame {
-
+    OracleDB db = new OracleDB();
+    String strSQL = "Select * From Car";
     /**
      * Creates new form main
      */
     public main() {
         initComponents();
+        
     }
 
     /**
