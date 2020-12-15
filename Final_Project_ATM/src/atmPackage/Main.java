@@ -309,36 +309,41 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDepsoit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepsoit1ActionPerformed
-        Deposit deposit = new Deposit();
+    private void btnDepsoit1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // 입금 메뉴 선택 시 화면 전환
+        Deposit deposit = new Deposit(); 
         deposit.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnDepsoit1ActionPerformed
+    }
 
-    private void btnWithdraw1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdraw1ActionPerformed
+    private void btnWithdraw1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // 출금 메뉴 선택 시 화면 전환
         Withdraw withdraw = new Withdraw();
         withdraw.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnWithdraw1ActionPerformed
+    }
 
-    private void btnTransfer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransfer1ActionPerformed
+    private void btnTransfer1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // 송금 메뉴 선택 시 화면 전환
         Transfer transfer = new Transfer();
         transfer.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnTransfer1ActionPerformed
+    }
 
-    private void btnAccountInfo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountInfo1ActionPerformed
+    private void btnAccountInfo1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // 잔고 메뉴 선택 시 화면 전환
         BankBalance bb = new BankBalance();
         bb.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnAccountInfo1ActionPerformed
+    }
 
-    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
+    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // 로그아웃 선택 시 종료
        System.exit(0);
-    }//GEN-LAST:event_btnLogout1ActionPerformed
+    }
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -360,12 +365,11 @@ public class Main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+        //Main.java 실행 시 Login 창 띄우기
         Login login = new Login();
         login.setVisible(true);
-        
+        dispose();
     }
 
     private javax.swing.JButton btn10;

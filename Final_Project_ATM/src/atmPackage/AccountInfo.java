@@ -1,10 +1,8 @@
 package atmPackage;
+public class AccountInfo extends javax.swing.JFrame
 
-public class AccountInfo extends javax.swing.JFrame {
-      
     public AccountInfo() {
         initComponents();
-        
         OracleDB db = new OracleDB(); //OracleDB 인스턴스 생성
 
         //계좌번호 출력 
@@ -99,12 +97,11 @@ public class AccountInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         Main main = new Main(); //Main 클래스의 인스턴스를 생성
         main.setVisible(true); //frame 전환
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     public static void main(String args[]) {
         try {

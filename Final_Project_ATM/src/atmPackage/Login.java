@@ -1,16 +1,14 @@
 package atmPackage;
-
 import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     OracleDB db = new OracleDB(); // DB 연동 인스턴스 생성
-    static int account; //
+    static int account; // 로그 인 시 account 정적 변수
     
     public Login() {
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -109,67 +107,59 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String strAccount = txtAccount.getText().trim();
-        account = Integer.parseInt(strAccount);
-        String name = txtName.getText().trim();
-        String password = txtPassword.getText().trim();
-        int memberCnt=0;
-        boolean state = true;
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
+        //로그인 시 db연동 후 체크
+        String strAccount = txtAccount.getText().trim(); // 입력된 계좌번호
+        account = Integer.parseInt(strAccount); //계좌번호 int타입
+        String name = txtName.getText().trim(); //입력된 이름
+        String password = txtPassword.getText().trim(); //입력된 비밀번호
+        int memberCnt=0; // db에 저장된 회원수
+        boolean state = true; //잘못기입시 false
         try{
              db.dbOpen();
             //중복 체크
             String strSQL = "Select * From user_info where account ="+strAccount;
             db.DB_rs = db.DB_stmt.executeQuery(strSQL);
-                while(db.DB_rs.next() && state){
+                while(db.DB_rs.next() && state){ //계좌번호 확인
                      if(db.DB_rs.getInt("account")!=account){
                          JOptionPane.showMessageDialog(null, "계좌 번호 확인 바람");
                          state = false;
                          break;
                      } 
-                    if(!db.DB_rs.getString("name").equals(name)){
+                    if(!db.DB_rs.getString("name").equals(name)){ // 이름 확인
                          JOptionPane.showMessageDialog(null, "이름 확인 바람");
                          state = false;                         
                          break;
 
-                     }
+                     } // 비밀번호 확인
                     if(!db.DB_rs.getString("password").equals(password)){
                          JOptionPane.showMessageDialog(null, "비밀번호 확인 바람");
                          state = false;                         
                          break;
                      }
-                    memberCnt++;
+                    memberCnt++; //멤버수 0일 시 증가되지 않으므로 멤버유무 확인
             }
             db.dbClose();
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
+        //로그인 성공 시
         if (state == true && memberCnt>0){
             Main main = new Main();
             main.setVisible(true);
             dispose();
         }
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }
 
-    private void txtAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAccountActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {
+        //회원가입 버튼 누를 시 화면 전환
         Signup signup = new Signup();
         signup.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnSignupActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -191,16 +181,10 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
-                        
-            
+
             }
         });
     }

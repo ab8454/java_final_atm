@@ -5,8 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+
 public class Signup extends javax.swing.JFrame {
-    OracleDB db = new OracleDB();
+    OracleDB db = new OracleDB(); //DB 연동 인스턴스 생성
     public Signup() {
         initComponents();
     }
@@ -117,59 +118,62 @@ public class Signup extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {
+        //회원가입 버튼
         //값 가져오기
-        int account = Integer.parseInt(txtAccount.getText().trim());
-        String pw1 = txtPassword.getText().trim();
-        String pw2 = txtCheckPassword.getText().trim();
-        String name = txtName.getText().trim();
-        boolean state=true;
+        int account = Integer.parseInt(txtAccount.getText().trim()); // 입력된 계좌 번호
+        String pw1 = txtPassword.getText().trim(); //입력된 비밀번호
+        String pw2 = txtCheckPassword.getText().trim(); //입력된 확인 비밀번호
+        String name = txtName.getText().trim(); //입력된 이름
+        boolean state=true; //중복 체크 여부 
         try{
             db.dbOpen();
             //중복 체크
             db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
-                while(db.DB_rs.next() && state){
-                     if(db.DB_rs.getInt("account")==account){
+                while(db.DB_rs.next() && state){ // 회원 수 많큼 반복
+                     if(db.DB_rs.getInt("account")==account){ // 계좌번호 중복 확인
                          JOptionPane.showMessageDialog(null, "계좌 번호 중복");
                          state = false;
                          break;
                      } 
-                    if(db.DB_rs.getString("name")==name){
+                    if(db.DB_rs.getString("name").equals(name)){ //이름 중복 확인
                          JOptionPane.showMessageDialog(null, "이름 중복");
                          state = false;                         
                          break;
-
                      }
-                    if(!pw1.equals(pw2)){
+                    if(!pw1.equals(pw2)){ //비밀번호 같은지 확인
                          JOptionPane.showMessageDialog(null, "비밀번호 확인 바람");
                          state = false;                         
                          break;
                      }
             }
+            //중복 없을 시
             if (state == true) {
                 String strSQL = "Insert Into user_info Values (";
                 strSQL += "'" + name + "',";
                 strSQL += account + ",";
                 strSQL += "'" + pw1 + "')";
-                db.DB_stmt.executeUpdate(strSQL);
+                db.DB_stmt.executeUpdate(strSQL); //회원정보 user_info 에 등록
             }
             db.DB_con.commit();
             db.dbClose();
+            //회원가입 완료 후 Main화면 실행
+            Login.account = account; // 계좌번호 전 파일 공유
             Main main = new Main();
             main.setVisible(true);
             dispose();
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
             }
-    }//GEN-LAST:event_btnSignUpActionPerformed
+    }
 
-    private void btnCheckDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckDuplicateActionPerformed
-        int account = Integer.parseInt(txtAccount.getText().trim());
-        String name = txtName.getText().trim();
-        String strSQL = "Select * From user_info ";
+    private void btnCheckDuplicateActionPerformed(java.awt.event.ActionEvent evt) {
+        //중복 확인 버튼
+        int account = Integer.parseInt(txtAccount.getText().trim()); //입력된 계좌번호 
+        String name = txtName.getText().trim(); //입력된 이름
+        String strSQL = "Select * From user_info "; //전체 회원 출력 Query
         try{
             db.dbOpen();
-            //중복 체크
             db.DB_rs = db.DB_stmt.executeQuery(strSQL);
                 while(db.DB_rs.next()){
                     //계좌 중복
@@ -178,7 +182,7 @@ public class Signup extends javax.swing.JFrame {
                          break;
                      } 
                      //이름 중복
-                    if(db.DB_rs.getString("name")==name){
+                    if(db.DB_rs.getString("name").equals(name)){
                          JOptionPane.showMessageDialog(null, "이름 중복");                         
                          break;
                      }
@@ -188,11 +192,8 @@ public class Signup extends javax.swing.JFrame {
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
-    }//GEN-LAST:event_btnCheckDuplicateActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -216,19 +217,14 @@ public class Signup extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Signup().setVisible(true);
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    
     private javax.swing.JButton btnCheckDuplicate;
     private javax.swing.JButton btnSignUp;
     private javax.swing.ButtonGroup buttonGroup1;
