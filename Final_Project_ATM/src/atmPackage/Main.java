@@ -369,7 +369,6 @@ public class Main extends javax.swing.JFrame {
         //Main.java 실행 시 Login 창 띄우기
         Login login = new Login();
         login.setVisible(true);
-        dispose();
     }
 
     private javax.swing.JButton btn10;

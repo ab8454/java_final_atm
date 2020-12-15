@@ -1,8 +1,7 @@
 package atmPackage;
 import atmPackage.RepeatPW;
 import atmPackage.Login;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 public class Transfer extends javax.swing.JFrame {
         OracleDB db = new OracleDB();
 
@@ -365,7 +364,7 @@ public class Transfer extends javax.swing.JFrame {
         strSQL = "Insert Into transaction Values(";
         strSQL +=  Login.account + ",";
         strSQL +=  balance;
-        strSQL += ", '송금',";
+        strSQL += ", '송금 :" + transferAmount +"',";
         strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
             try{
                 db.dbOpen();
@@ -409,13 +408,14 @@ public class Transfer extends javax.swing.JFrame {
             strSQL = "Insert Into transaction Values(";
             strSQL += Integer.parseInt(strAccount) + ",";
             strSQL += balance;
-            strSQL += ", '송금',";
+            strSQL += ", '입금 :" + transferAmount +"',";
             strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
             try {
                 db.dbOpen();
                 db.DB_stmt.executeUpdate(strSQL); // 거래내역 입력
                 db.DB_con.commit();
                 db.dbClose();
+                    
                 //sql문 성공 시 -비밀번호 입력 창 전환
                 RepeatPW repeatPW = new RepeatPW();
                 repeatPW.setVisible(true);

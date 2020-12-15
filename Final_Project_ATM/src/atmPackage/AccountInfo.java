@@ -1,5 +1,5 @@
 package atmPackage;
-public class AccountInfo extends javax.swing.JFrame
+public class AccountInfo extends javax.swing.JFrame{
 
     public AccountInfo() {
         initComponents();

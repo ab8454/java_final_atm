@@ -335,7 +335,7 @@ public class Withdraw extends javax.swing.JFrame {
         strSQL = "Insert Into transaction Values(";
         strSQL +=  Login.account + ",";
         strSQL +=  balance;
-        strSQL += ", '출금',";
+        strSQL += ", '출금 :" + Integer.toString(amount)+"',";
         strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))"; //거래 내역 등록
         try{
             db.dbOpen();

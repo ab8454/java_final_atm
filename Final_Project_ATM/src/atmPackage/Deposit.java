@@ -318,7 +318,7 @@ public class Deposit extends javax.swing.JFrame {
         strSQL = "Insert Into transaction Values(";
         strSQL +=  Login.account + ",";
         strSQL +=  balance + amount;
-        strSQL += ", '입금',";
+        strSQL += ", '입금 :" + Integer.toString(amount) +"',";
         strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
         try{
             db.dbOpen();

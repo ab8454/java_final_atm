@@ -12,22 +12,23 @@ public class BankBalance extends javax.swing.JFrame {
         txtAccount.setText(strAccount);
       
         //잔액 구하기
-        int balance;
+        int balance=0;
         boolean state = true;
         String strSQL = "select * from ("
                 + "select * from transaction where account =" + strAccount 
                 +"order by rownum desc) where rownum = 1";
         try{
             db.dbOpen();
-            db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
+            db.DB_rs = db.DB_stmt.executeQuery(strSQL);
             while(db.DB_rs.next()){
-                     balance = db.DB_rs.getInt("balance");
-                     txtBalance.setText(balance);
+                balance = db.DB_rs.getInt("balance");
             }
             db.dbClose();
         }catch (Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
+        //잔액 텍스트 표기
+        txtBalance.setText(Integer.toString(balance));
         
         //테이블 거래내역
         int iCntRow = 0;
@@ -35,12 +36,13 @@ public class BankBalance extends javax.swing.JFrame {
         int tempBalance=0;
         strSQL = "Select * From transaction where account="+strAccount;
         try{
+            db.dbOpen();
             db.DB_rs = db.DB_stmt.executeQuery(strSQL);
                 while(db.DB_rs.next()){
                      jTable1.setValueAt(iCntRow+1, iCntRow, 0);
-                    jTable1.setValueAt(db.DB_rs.getString("t_info"),    iCntRow, 1);
-                    jTable1.setValueAt(Integer.parseInt(db.DB_rs.getString("balance"))- tempBalance, iCntRow, 2);
-                    jTable1.setValueAt(db.DB_rs.getString("balance"), iCntRow, 3);
+                    jTable1.setValueAt(db.DB_rs.getString("t_info"), iCntRow, 1);
+                    jTable1.setValueAt(db.DB_rs.getInt("balance")- tempBalance, iCntRow, 2);
+                    jTable1.setValueAt(db.DB_rs.getInt("balance"), iCntRow, 3);
                     iCntRow++;
                     tempBalance = Integer.parseInt(db.DB_rs.getString("balance"));
             }
@@ -54,7 +56,7 @@ public class BankBalance extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,10 +66,10 @@ public class BankBalance extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("돌아가기");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMenu.setText("돌아가기");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMenuActionPerformed(evt);
             }
         });
 
@@ -125,7 +127,7 @@ public class BankBalance extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(btnMenu)))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
@@ -142,16 +144,18 @@ public class BankBalance extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnMenu)
                 .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        Main main = new Main();
+        main.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -183,7 +187,7 @@ public class BankBalance extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
