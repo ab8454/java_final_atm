@@ -4,9 +4,8 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-    OracleDB db = new OracleDB();
-    static int account;
-    String name;
+    OracleDB db = new OracleDB(); // DB 연동 인스턴스 생성
+    static int account; //
     
     public Login() {
         initComponents();
@@ -113,7 +112,7 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String strAccount = txtAccount.getText().trim();
         account = Integer.parseInt(strAccount);
-        name = txtName.getText().trim();
+        String name = txtName.getText().trim();
         String password = txtPassword.getText().trim();
         int memberCnt=0;
         boolean state = true;
@@ -148,6 +147,7 @@ public class Login extends javax.swing.JFrame {
         if (state == true && memberCnt>0){
             Main main = new Main();
             main.setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

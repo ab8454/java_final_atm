@@ -1,14 +1,10 @@
 package atmPackage;
-
-
 import atmPackage.RepeatPW;
 import atmPackage.Login;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 public class Transfer extends javax.swing.JFrame {
         OracleDB db = new OracleDB();
-        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 
     public Transfer() {
         initComponents();
@@ -257,101 +253,86 @@ public class Transfer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        // TODO add your handling code here:
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn0.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn0ActionPerformed
+    }
 
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn1.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn1ActionPerformed
+    }
 
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        // TODO add your handling code here:
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn2.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn2ActionPerformed
+    }
 
-    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        // TODO add your handling code here:
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn3.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn3ActionPerformed
+    }
 
-    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        // TODO add your handling code here:
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn4.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn4ActionPerformed
+    }
 
-    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        // TODO add your handling code here:
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn5.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn5ActionPerformed
+    }
 
-    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        // TODO add your handling code here:
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                      
         i = txtAccount.getText() + btn6.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn6ActionPerformed
+    }
 
-    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        // TODO add your handling code here:
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn7.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn7ActionPerformed
+    }
 
-    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        // TODO add your handling code here:
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                      
         i = txtAccount.getText() + btn8.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn8ActionPerformed
+    }
 
-    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        // TODO add your handling code here:
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn9.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn9ActionPerformed
+    }
 
-    private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
-        // TODO add your handling code here:
+    private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn1000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);   // 버튼을 누르거나 숫자를 눌렀을때 입력 
-    }//GEN-LAST:event_btn1000ActionPerformed
+    }
 
-    private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
-        // TODO add your handling code here:
+    private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {
         String i;                                       
         i = txtAccount.getText() + btn10000.getText();      // 버튼을 누르거나 숫자를 눌렀을때 입력
         txtAccount.setText(i);
-    }//GEN-LAST:event_btn10000ActionPerformed
+    }
 
-    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
-        // TODO add your handling code here:
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {
         txtAccount.setText("");
-    }//GEN-LAST:event_btnclearActionPerformed
+    }
 
-    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        int transferAmount = Integer.parseInt(txtAmount.getText().trim());
-        Date time = new Date();
-        String time1 = format1.format(time);
-        boolean state = true;
-       boolean isExist = false;
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {
+        int transferAmount = Integer.parseInt(txtAmount.getText().trim()); // 송금 금액
+        boolean state = true; // balance 호출 여부 체크
+        boolean isExist = false; //거래 내역 여부 체크
        
         //본인 계좌
         //잔액 구하기
@@ -359,18 +340,18 @@ public class Transfer extends javax.swing.JFrame {
         String strAccount = Integer.toString(Login.account);
         String strSQL = "select * from ("
                 + "select * from transaction where account =" + strAccount 
-                +"order by rownum desc) where rownum = 1";
+                +"order by rownum desc) where rownum = 1"; //해당 계좌 마지막 거래 내역
         try{
             db.dbOpen();
             db.DB_rs = db.DB_stmt.executeQuery(strSQL);
             while(db.DB_rs.next()){
                 //거래 내역 있을 시
-                balance = db.DB_rs.getInt("balance")-transferAmount;
+                balance = db.DB_rs.getInt("balance")- transferAmount ; //잔고에서 송금 금액 차감
                 isExist =true;
             }
             //거래내역 없을 시
             if(isExist == false){
-                balance = transferAmount;
+                balance = -transferAmount; // 거래 없을 시 마이너스
             }
             db.dbClose();
         }catch (Exception e){
@@ -380,17 +361,18 @@ public class Transfer extends javax.swing.JFrame {
         
         //잔액 불러오기 성공 시        
         if (state == true){
-            //본인 계좌
-            strSQL = "Insert Into transaction Values (";
-            strSQL += "'" + strAccount + "',";
-            strSQL += "'" + balance + "',";
-            strSQL += "'송금',";
-            strSQL += "'" + time1 + "')";
+        //본인 계좌
+        strSQL = "Insert Into transaction Values(";
+        strSQL +=  Login.account + ",";
+        strSQL +=  balance;
+        strSQL += ", '송금',";
+        strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
             try{
                 db.dbOpen();
-                db.DB_stmt.executeUpdate(strSQL);
+                db.DB_stmt.executeUpdate(strSQL);// 거래내역 입력
+                db.DB_con.commit();
                 db.dbClose();
-                //sql문 성공 시
+                //sql문 성공 시 -비밀번호 입력 창 전환
                 RepeatPW repeatPW = new RepeatPW();
                 repeatPW.setVisible(true);
                 dispose();
@@ -401,10 +383,10 @@ public class Transfer extends javax.swing.JFrame {
             
         //타인 계좌
         //잔액 구하기
-        strAccount = txtAccount.getText().trim();
+        strAccount = txtAccount.getText().trim(); // 송금 받을 계좌 번호
         strSQL = "select * from ("
                 + "select * from transaction where account =" + strAccount 
-                +"order by rownum desc) where rownum = 1";
+                +"order by rownum desc) where rownum = 1"; // 해당 계좌의 마지막 거래 내역
         try{
             db.dbOpen();
             db.DB_rs = db.DB_stmt.executeQuery(strSQL);
@@ -423,30 +405,27 @@ public class Transfer extends javax.swing.JFrame {
             state = false;
         }
 
-
-        strSQL = "Insert Into transaction Values (";
-        strSQL += "'" + strAccount + "',";
-        strSQL += "'" + balance + "',";
-        strSQL += "'송금',";
-        strSQL += "'" + time1 + "')";
-        try{
-            db.dbOpen();
-            db.DB_stmt.executeUpdate(strSQL);
-            db.DB_con.commit();
-            db.dbClose();
-            //sql문 성공 시
-            RepeatPW repeatPW = new RepeatPW();
-            repeatPW.setVisible(true);
-            dispose();
-        }catch (Exception e){
-            System.out.println("SQLException : "+e.getMessage());
+        if(state==true) { // 잔액 불러오기 성공 시
+            strSQL = "Insert Into transaction Values(";
+            strSQL += Integer.parseInt(strAccount) + ",";
+            strSQL += balance;
+            strSQL += ", '송금',";
+            strSQL += "TO_DATE(sysdate, 'YYYY/MM/DD:HH24:MI:SS'))";
+            try {
+                db.dbOpen();
+                db.DB_stmt.executeUpdate(strSQL); // 거래내역 입력
+                db.DB_con.commit();
+                db.dbClose();
+                //sql문 성공 시 -비밀번호 입력 창 전환
+                RepeatPW repeatPW = new RepeatPW();
+                repeatPW.setVisible(true);
+                dispose();
+            } catch (Exception e) {
+                System.out.println("SQLException : " + e.getMessage());
+            }
         }
-        
-    }//GEN-LAST:event_btnOKActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -470,11 +449,7 @@ public class Transfer extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Transfer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Transfer().setVisible(true);
@@ -482,7 +457,6 @@ public class Transfer extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn1000;
@@ -502,5 +476,4 @@ public class Transfer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtAccount;
     private javax.swing.JTextField txtAmount;
-    // End of variables declaration//GEN-END:variables
 }

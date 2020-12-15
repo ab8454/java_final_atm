@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class BankBalance extends javax.swing.JFrame {
     public BankBalance() {
         initComponents();
-        OracleDB db = new OracleDB();
+        OracleDB db = new OracleDB(); // DB 연동 인스턴스 생성
         
         //계좌번호
         String strAccount = Integer.toString(Login.account);
@@ -22,6 +22,7 @@ public class BankBalance extends javax.swing.JFrame {
             db.DB_rs = db.DB_stmt.executeQuery("Select * From user_info");
             while(db.DB_rs.next()){
                      balance = db.DB_rs.getInt("balance");
+                     txtBalance.setText(balance);
             }
             db.dbClose();
         }catch (Exception e){
@@ -53,7 +54,6 @@ public class BankBalance extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,11 +62,14 @@ public class BankBalance extends javax.swing.JFrame {
         txtAccount = new javax.swing.JLabel();
         txtBalance = new javax.swing.JLabel();
 
-        jTextField1.setText("jTextField1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("돌아가기");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("계좌번호");
 
@@ -146,6 +149,10 @@ public class BankBalance extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -181,7 +188,6 @@ public class BankBalance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel txtAccount;
     private javax.swing.JLabel txtBalance;
     // End of variables declaration//GEN-END:variables

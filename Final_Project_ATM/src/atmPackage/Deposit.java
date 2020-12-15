@@ -1,11 +1,8 @@
 package atmPackage;
-
 import atmPackage.RepeatPW;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Deposit extends javax.swing.JFrame {
-        OracleDB db = new OracleDB();
+        OracleDB db = new OracleDB(); // DB 연동 인스턴스 생성
 
     public Deposit() {
         initComponents();
