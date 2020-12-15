@@ -27,12 +27,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("비밀번호");
 
-        txtAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAccountActionPerformed(evt);
-            }
-        });
-
         btnLogin.setText("로그인");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -41,12 +35,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         lnlName.setText("이름");
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         btnSignup.setText("회원가입");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
